@@ -1,0 +1,90 @@
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    width: 70vw;
+    justify-content: center;
+    align-content: flex-start;
+    margin: auto;
+    gap: 20px;
+    flex-basis: initial;
+
+}
+.cards-container{
+    width: 200px;
+    border: rgba(43, 122, 187, 0.705) 2px solid;
+    padding: 0 20px 20px 20px ;
+}
+
+/* DETALLES DE CADA CARD */
+.div-cards-detalle{
+    width: 400PX;
+    background-color: rgba(43, 122, 187, 0.445);
+    padding: 10px;
+    margin: auto;
+    border-radius: 20px;
+}
+.card-img{
+    width: 180px;
+    height: 190px;
+}
+.card-titulo{
+    height: 100px;
+    align-content: center;
+}
+.selectCantidad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px
+}
+.selectCantidad button{
+    height: 30px;
+    border-radius: 15px;
+    border: none;   
+    width: 35px;
+    cursor: pointer;
+    
+}
+button{
+    cursor: pointer;
+}
+
+/* Estilos para cards de productos ya selecionados en el carrito */
+
+.carrito-cards{
+    display: grid;
+    grid-template-columns: repeat(8,1fr) 90px;
+    grid-template-rows: 1fr;
+    grid-template-areas: "img titulo desc desc desc cant precioU precioT x";
+    align-items: center;
+    justify-items: center;
+    border-radius: 15px;
+    height: 125px;
+    border: dashed  4px grey;
+    margin: 10px;
+
+}
+.image-art{
+    grid-area: img;
+    width: 100px;
+    height: 100px;
+}
+.art-titulo{
+    grid-area: titulo;
+}
+.desc-art{
+    grid-area: desc;
+}
+.art-precio{
+    grid-area: precioT;
+}
+.cantidad{
+grid-area: cant;
+}
+.art-precio-uni{
+    grid-area: precioU;
+}
+.btn-eliminar{
+    grid-area: x;
+}

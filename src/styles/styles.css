@@ -1,0 +1,102 @@
+
+
+.div-banner{
+    background-image: url('../assets/467165490018381.png');
+    height: 100px;
+    background-size:cover;
+    display: flex;
+    border-radius: 10px;
+}
+
+.banner-titulo{
+    margin-left: 20px;
+}
+
+.nav{
+    
+    height: 90px;
+}
+.nav-ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+}
+.nav-link{
+    color: rgb(20, 183, 224);
+    text-decoration: none;
+    color: rgb(181, 235, 248);
+}
+.nav-ul li {
+    padding: 10px;
+}
+.nav-ul li:hover{
+        border-top: 3px solid rgb(109, 64, 182);
+        scale: 1.4;
+}
+.footer{
+    background-color: #005892;
+    padding:10px;
+    text-align:center;
+    margin-top: 20px;
+    color: white; 
+    border-radius: 10px;
+
+}
+
+/* Main */
+
+.div-main{
+    background-image: url("/src/assets/banner-main.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 30px;
+    color: black;
+    font-weight: bolder;
+}
+.main-p{
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(5, 98, 180, 0.473);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* NOSOTROS */
+
+
+.img-nosotros{
+    background-image: url('/src/assets/banner-nos.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+    padding: 60px 0;
+}
+
+.div-nos{
+    margin: auto;
+    max-width: 600px;
+    background-color: rgba(5, 98, 180, 0.473);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+
+/* Formulario de contacto */
+
+.formulario-contacto{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    justify-content: center;
+    margin: auto;
+}
+.p-formulario{
+    max-width: 70vw;
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    text-align: start;
+}
