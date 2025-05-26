@@ -1,6 +1,6 @@
 import './App.css'
 import './styles/styles.css'
-import Nav from './components/nav'
+import Nav from './components/Nav'
 import Banner from './components/Banner'
 import Footer from './components/Footer'
 import Main from './components/Main'
