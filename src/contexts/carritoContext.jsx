@@ -1,5 +1,6 @@
 import { createContext, use, useState } from "react";
 import { useEffect } from "react";
+import { AlertasSweets } from "../assets/SweetAlert";
 
 export const CarritoContext = createContext();
 
@@ -24,11 +25,9 @@ export function CarritoProvider({ children }) {
       });
       setCarritoGuardado(carritoActualizado);
     } else {
-      setCarritoGuardado([
-        ...carritoGuardado,
-        { ...artSeleccion, cantidad: contadorArticulo },
-      ]);
+      setCarritoGuardado([...carritoGuardado, { ...artSeleccion, cantidad: contadorArticulo },]);
     }
+     AlertasSweets('Agregado al carrito', 'success', 'Cerrar', 'Vea en la seccion CARRITO las entradas agregadas')
   };
   {
     useEffect(() => {
@@ -41,6 +40,7 @@ export function CarritoProvider({ children }) {
   const eliminarArticuloCarrito = (item) => {
     const itemBorrado = carritoGuardado.filter((items) => items.id != item);
     setCarritoGuardado(itemBorrado);
+     AlertasSweets('Item eliminado', 'warning', 'Cerrar', 'Vea en la seccion CARRITO las entradas agregadas')
   };
 
 

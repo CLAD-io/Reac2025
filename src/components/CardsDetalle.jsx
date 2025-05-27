@@ -3,6 +3,7 @@ import { articuloContext } from "../contexts/itemsContext";
 import { useParams } from "react-router-dom";
 import "../styles/stylesCards.css";
 import { CarritoContext } from "../contexts/carritoContext";
+import {AlertasSweets}  from '../assets/SweetAlert'
 
 export default function CardsDetalle() {
   const { id } = useParams();
