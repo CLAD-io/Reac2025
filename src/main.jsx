@@ -5,9 +5,11 @@ import App from './App.jsx'
 import { ArticuloProvider } from './contexts/itemsContext.jsx'
 import { CarritoProvider } from './contexts/carritoContext.jsx'
 import { LoginProvider } from './contexts/loginContext.jsx'
+import { AuthProvider } from './contexts/AuthContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
+    <AuthProvider>
     <ArticuloProvider>
     <CarritoProvider>
       <LoginProvider>
@@ -15,5 +17,6 @@ createRoot(document.getElementById('root')).render(
     </LoginProvider>
     </CarritoProvider>
     </ArticuloProvider>
+    </AuthProvider>
   // </StrictMode>,
 )

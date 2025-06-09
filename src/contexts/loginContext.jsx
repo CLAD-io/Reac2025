@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { useState } from "react";
+import { AlertasSweets3 } from "../assets/SweetAlert";
 
 export const loginContext = createContext();
 
@@ -9,6 +10,7 @@ export function LoginProvider({ children }) {
 
   function ingresoEgresoAdmin() {
     setAdminLogeado(!adminLogeado);
+   
   }
   function ingresoEgresoUser() {
     setUsuarioLogeado(!usuarioLogeado);

@@ -16,6 +16,7 @@ import Login from './components/Login'
 import Admin from './components/Admin'
 import { loginContext } from './contexts/loginContext'
 import { useContext } from 'react'
+import Login2 from './components/Login2'
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
         <Route path='/carrito' element={usuarioLogeado ? <Carrito/> : <Navigate to={"/login"} replace/>}/>
         <Route path='contacto' element={<Contacto/>}/>
         <Route path='/card-detalles/:id' element={<CardsDetalle/>}/>
-        <Route path='/login' element={<Login/>}/>
+        <Route path='/login' element={<Login2/>}/>
         <Route path='/admin' element={ adminLogeado ? <Admin/> : <Navigate to={'/login'} replace/>}/>
       </Routes>
       <Footer/>

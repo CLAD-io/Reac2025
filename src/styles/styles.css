@@ -100,3 +100,21 @@
     margin-top: 30px;
     text-align: start;
 }
+
+/* Login */ 
+
+.form-logeo{
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    margin: auto;
+}
+.forms-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+}
+.btn-form{
+    margin-top: 20px;
+}

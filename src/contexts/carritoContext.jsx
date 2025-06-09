@@ -40,7 +40,7 @@ export function CarritoProvider({ children }) {
   const eliminarArticuloCarrito = (item) => {
     const itemBorrado = carritoGuardado.filter((items) => items.id != item);
     setCarritoGuardado(itemBorrado);
-     AlertasSweets('Item eliminado', 'warning', 'Cerrar', 'Vea en la seccion CARRITO las entradas agregadas')
+     AlertasSweets('Item eliminado', 'warning', 'Cerrar')
   };
 
 

@@ -17,7 +17,7 @@ export default function CarritoCards({article}){
                 <p>Precio unitario</p>
              <p>{article.price}</p>
              </div>
-             <h3 className='art-precio'>Total: ${article.price*article.cantidad}</h3>
+             <h3 className='art-precio'>Total: ${(article.price*article.cantidad).toFixed(2)}</h3>
             <button className='btn-eliminar' onClick={()=> eliminarArticuloCarrito(article.id)}>X</button>
         </div>
     )
