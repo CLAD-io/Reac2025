@@ -34,6 +34,10 @@
         border-top: 3px solid rgb(109, 64, 182);
         scale: 1.4;
 }
+.carrito-icon{
+    align-items: center;
+    margin-left: 10px;
+}
 .footer{
     background-color: #005892;
     padding:10px;
@@ -104,17 +108,31 @@
 /* Login */ 
 
 .form-logeo{
-    display: flex;
-    justify-content: space-between;
-    width: 1000px;
+    
+    justify-content: center;
+    width: 300px;
     margin: auto;
+    flex-direction: column;
 }
 .forms-login{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 200px;
+    
 }
 .btn-form{
     margin-top: 20px;
+}
+.link-logeo{
+    display: block;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 50px;
+    justify-content: flex-end;
+    width: 300px;
+    
+}
+.link-logeo:hover{
+    color: rgb(181, 235, 248);
+
 }

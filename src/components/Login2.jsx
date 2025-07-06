@@ -1,113 +1,95 @@
 import { use, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-import { loginContext } from "../contexts/loginContext";
 import { crearUsuario, loginEmailPass } from "../auth/firebase";
 import { AlertasSweets3, AlertasSweets2 } from "../assets/SweetAlert";
+import { Helmet } from "react-helmet";
+
 
 
 export default function Login2() {
 
-    
-    const [usuario, setUsuario] = useState('')
-    const [password , setPassword] = useState('')
     const [usuarioReg, setUsuarioReg] = useState('')
     const [passwordReg, setPasswordReg] = useState('')
     const [usuarioInicio, setUsuarioInicio] = useState('')
     const [passwordInicio, setPasswordInicio] = useState('')
     const reDirigir = useNavigate()
-    const {login, user, logout} = useContext(AuthContext)
-    const {ingresoEgresoAdmin,ingresoEgresoUser} = useContext(loginContext)
+    const {login, user, logout, admin} = useContext(AuthContext)
+    const [show, setShow] = useState(true)
 
-  function handlerSubmit(e) {
-    e.preventDefault();
-    if (usuario === "admin" && password === "1234"){
-      AlertasSweets3("Inicio correcto")
-      login(usuario)
-      reDirigir('/')
-      ingresoEgresoAdmin()
-      ingresoEgresoUser()
 
-    } else {
-      AlertasSweets2('Credenciales invalidas', 'error', 'Reintentar');
-    }
-    setPassword('')
-    setUsuario('')
-  }
+    // FUNCION PARA VALIDAR SI EL USUARIO ES ADMINISTRADOR-------------------------------------
+ 
+
+// FUNCION PARA CERRAR LA SESION Y BORRAR EL TOKEN ALMACENADO EN EL LOCAL STORAGE
 
 function cerrarSesion(){
   logout()
   AlertasSweets3('Sesion cerrada')
-  ingresoEgresoAdmin()
-  ingresoEgresoUser()
   reDirigir('/novedades')
 
 }
 
-  if (user == 'admin'){
-    return(<button onClick={ ()=> cerrarSesion()} >Cerrar Sesion Administrador</button>)
-  }
-  if (user){return(<button onClick={ ()=> cerrarSesion()} >Cerrar Sesion Usuario</button>)}
-// Funcion Registrar usuario
+// FUNCION PARA REGISTRAR USUARIO -------------------------------------
   function registrarUsuario(e){
     e.preventDefault()
     crearUsuario(usuarioReg, passwordReg)
     console.log()
-    AlertasSweets3("¡Se registró el usuario!")
+    
   }
 
-// Funcion iniciar sesion con usuario ya registrado
+// FUNCION PARA INICIAR SESION CON USUARIO YA REGISTRADO -------------------------------------
   function inicioSesionUserReg(e){
     e.preventDefault()
     loginEmailPass(usuarioInicio, passwordInicio)
       .then((UsuarioLogin)=>{
-      ingresoEgresoUser()
-      login(usuarioInicio)
+      login(usuarioInicio) // VERIFICA EN EL EL AUTHCONTEXT SI ESE USUARIO CORRESPONDE AL USUARIO ADMINISTRADOR
       AlertasSweets3("Inicio correcto")
       reDirigir('/')
 
     })
       .catch((error) =>{
-      alert(error)
+        if(error == "auth/invalid-credential"){
+          AlertasSweets2("Credenciales Inválidas", "error", "Cerrar")
+        }
+        if(error == "auth/invalid-email"){
+          AlertasSweets2("Mail Inválido", "error", "Cerrar")
+        }
+        if(error == "auth/too-many-requests"){
+          AlertasSweets2("Demasiados intentos, intente mas tarde", "error", "Cerrar")
+        }
+        console.log("error en el Login ========>  " + error)
+      
     })
+  }
 
+  const handleShow = (e)=>{
+    e.preventDefault()
+    setShow(!show)
   }
 
 
-
-  return (
-    <>
-    {/* Seccion de LOGIN */}
-    <div className="form-logeo">
-
-      {/* Inicio de sesion como ADMIN ------------------------------------- */}
-
-      <form onSubmit={handlerSubmit} className="forms-login">
-        <h2>Iniciar sesion</h2>
-        <div className="forms-login">
-          <label>Usuario</label>
-          <input type="text" name="usuario" value={usuario} onChange={(evento) => setUsuario(evento.target.value)} autoComplete="off" required/>
-          <label>Password</label>
-          <input type="password" name="password1" value={password} onChange={(evento) => setPassword(evento.target.value)}/>
-          <button type="submit" className="btn-form">Iniciar</button>
-        </div>
-      </form>
-
-       {/* Registro de usuario -------------------------------------  */}
-
-       <form onSubmit={registrarUsuario} className="forms-login">
-        <h2>Registrarse</h2>
-        <div className="forms-login">
-          <label>Usuario</label>
-          <input type="text" name="usuario" value={usuarioReg} onChange={(evento) => setUsuarioReg(evento.target.value) } autoComplete="off" required/>
-          <label>Password</label>
-          <input type="text" name="password" value={passwordReg} onChange={(evento) => setPasswordReg(evento.target.value)}/>
-          <button type="submit" className="btn-form">Registrarme</button>
-        </div>
-      </form>
-
-      {/* Iniciar sesion con Email y password -------------------------------------  */}
-
+  
+  if (user || admin){
+    return(
+      <>
+      <Helmet>
+            <title>Sesion Activa | RouteTikcs!</title>
+            <meta name="description" content="¡Explora todo los eventos!." />
+        </Helmet>
+          <p>Usuario: {user}</p>
+          <button onClick={ ()=> cerrarSesion()} >Cerrar sesion actual</button>
+      </>
+  )}
+  if (!user && show){
+    return(
+      <>
+      <Helmet>
+            <title>Iniciar Sesion | RouteTikcs!</title>
+            <meta name="description" content="¡Explora todo los eventos!." />
+        </Helmet>
+      {/* Iniciar sesion con Email y password -------------------------------------   */}
+      <div className="form-logeo">
        <form onSubmit={inicioSesionUserReg} className="forms-login">
         <h2>Iniciar sesion Usuario</h2>
         <div className="forms-login">
@@ -119,6 +101,32 @@ function cerrarSesion(){
         </div>
       </form>
       </div>
-    </>
-  );
+      <a className="link-logeo" onClick={handleShow}>No tienes cuenta? Registrate</a>
+      </>
+    )}
+
+    if (!user && !show){
+      return(
+      <div>
+        <Helmet>
+            <title>Registrar usuario | RouteTikcs!</title>
+            <meta name="description" content="¡Explora todo los eventos!." />
+        </Helmet>
+       {/* Registro de usuario -------------------------------------   */}
+        <div className="form-logeo">
+       <form onSubmit={registrarUsuario} className="forms-login">
+        <h2>Registrarse</h2>
+        <div className="forms-login">
+          <label>Usuario</label>
+          <input type="text" name="usuario" value={usuarioReg} onChange={(evento) => setUsuarioReg(evento.target.value) } autoComplete="off" required/>
+          <label>Password</label>
+          <input type="text" name="password" value={passwordReg} onChange={(evento) => setPasswordReg(evento.target.value)}/>
+          <button type="submit" className="btn-form">Registrarme</button>
+        </div>
+      </form>
+      </div>
+      <p className="link-logeo" onClick={handleShow}>Ya tienes cuenta? <span>Iniciar sesion</span></p>
+      </div>
+      )
+    }
 }

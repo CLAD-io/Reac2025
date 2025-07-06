@@ -1,23 +1,22 @@
 import { useContext, useEffect, useState } from "react";
-import { articuloContext } from "../contexts/itemsContext";
+import { articuloContext } from "../contexts/articuloContext";
 import { useParams } from "react-router-dom";
 import "../styles/stylesCards.css";
 import { CarritoContext } from "../contexts/carritoContext";
 import {AlertasSweets}  from '../assets/SweetAlert'
+import { AuthContext } from "../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 export default function CardsDetalle() {
   const { id } = useParams();
-  const { articulos, cargando } = useContext(articuloContext);
-  const [artSeleccion, setArtSeleccion] = useState([]);
-  const [contadorArticulo, setContadorArticulo] = useState(1)
-  const {agregarArticuloCarrito, carritoGuardado} = useContext(CarritoContext)
+  const { artSeleccion, cargando, obtenerArticulo, borrarArticulo} = useContext(articuloContext);
+  const [contadorArticulo, setContadorArticulo, ] = useState(1)
+  const {agregarArticuloCarrito} = useContext(CarritoContext)
+  const{admin} = useContext(AuthContext)
 
   {
     useEffect(() => {
-      if (!cargando) {
-        const artSeleccion1 = articulos.find((art) => art.id === id);
-        setArtSeleccion(artSeleccion1);
-      }
+      obtenerArticulo(id)
     }, [cargando]);
   }
 
@@ -49,7 +48,8 @@ export default function CardsDetalle() {
       <p>{contadorArticulo}</p>
       <button onClick={sumarCont}>+</button>
       </div>
-      <button onClick={() => agregarArticuloCarrito(artSeleccion, contadorArticulo)}>Agregar al carrrito</button>
+      {admin ? <Link to={'/admin/editarArticulos/' + artSeleccion.id}><button>Editar</button></Link> : <button onClick={() => agregarArticuloCarrito(artSeleccion, contadorArticulo)}>Agregar al carrrito</button>}
+      {admin ? <button onClick={()=>borrarArticulo(artSeleccion.id)}>Borrar</button>: <></> }
     </div>
       
     </>

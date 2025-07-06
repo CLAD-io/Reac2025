@@ -1,6 +1,12 @@
+import { Helmet } from "react-helmet";
+
 export default function Main() {
   return (
     <div className="div-main">
+      <Helmet>
+            <title>Home | RouteTikcs!</title>
+            <meta name="description" content="Explora nuestra variedad de productos." />
+        </Helmet>
       <div className="imagen-main"></div>
       
       <p className="main-p">

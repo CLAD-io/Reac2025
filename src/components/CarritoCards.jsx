@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { CarritoContext } from "../contexts/carritoContext"
+import { Helmet } from "react-helmet"
 
 
 export default function CarritoCards({article}){
@@ -9,6 +10,10 @@ export default function CarritoCards({article}){
 
     return(
         <div className="carrito-cards">
+            <Helmet>
+            <title>Mi carrito | RouteTikcs!</title>
+            <meta name="description" content="¡Explora todo los eventos!." />
+        </Helmet>
             <img src={article.avatar} alt="" className="image-art"/>
             <h3 className="art-titulo">{article.name}</h3>
             <p className="desc-art">{article.description}</p>

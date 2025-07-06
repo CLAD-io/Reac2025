@@ -1,7 +1,13 @@
+import { Helmet } from "react-helmet";
+
 export default function Nosotros() {
   
   return (
     <div className="img-nosotros">
+      <Helmet>
+            <title>Nosotros | RouteTikcs!</title>
+            <meta name="description" content="¡Explora todo los eventos!." />
+        </Helmet>
       <div className="div-nos" > 
       <h2>Un poco sobre nosotros...</h2>
       <p>

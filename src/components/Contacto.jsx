@@ -1,8 +1,14 @@
 import "../styles/stylesCards.css";
+import { Helmet } from "react-helmet";
+
 
 export default function Contacto() {
   return (
     <>
+     <Helmet>
+            <title>Contacto | RouteTikcs!</title>
+            <meta name="description" content="¡Explora todo los eventos!." />
+        </Helmet>
       <h2>¡Contactenos!</h2>
 
       <div className="div-contacto">
