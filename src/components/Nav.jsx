@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-import { CiShoppingCart } from "react-icons/ci";
 import { FaShoppingCart } from "react-icons/fa";
 
 

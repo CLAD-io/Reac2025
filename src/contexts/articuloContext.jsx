@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { AlertasSweets2 } from "../assets/SweetAlert";
 
+
 export const articuloContext = createContext();
 
 export function ArticuloProvider({ children }) {
@@ -10,6 +11,7 @@ export function ArticuloProvider({ children }) {
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
   const [artSeleccion, setArtSeleccion] = useState([]);
+  const [originalArt, setOriginalArt] = useState("");
 
   {
     useEffect(() => {
@@ -18,6 +20,7 @@ export function ArticuloProvider({ children }) {
         .then((datos) => {
           setCargando(false);
           setArticulos(datos);
+          setOriginalArt(datos)
         })
         .catch((err) => {
           setError("Hubo un error al querer cargar los datos");
@@ -109,6 +112,20 @@ export function ArticuloProvider({ children }) {
     }
   }
 
+  function filtarAticulos(filtro){
+    if(filtro.length > 0){
+      console.log("viendo caracteres: " + filtro)
+      const buscarArt = articulos.filter((artFiltrar)=>
+        artFiltrar.name.toLowerCase().includes(filtro.toLowerCase())
+      )
+      console.log('articulos en el buscart', buscarArt)
+      setArticulos(buscarArt)
+    }
+    else{
+      setArticulos(originalArt)
+    }
+  }
+
   return (
     <articuloContext.Provider
       value={{
@@ -119,7 +136,8 @@ export function ArticuloProvider({ children }) {
         obtenerArticulo,
         artSeleccion,
         editarArticulo,
-        borrarArticulo
+        borrarArticulo,
+        filtarAticulos
       }}
     >
       {children}

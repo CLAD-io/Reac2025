@@ -2,7 +2,9 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { AlertasSweets2, AlertasSweets3 } from "../assets/SweetAlert";
+import { AlertasSweets2} from "../assets/SweetAlert";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,9 +20,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
+const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
+//Forzar la seleccion de cuenta de gmail
+provider.setCustomParameters({
+  prompt: 'select_account'
+});
 
 // CREAR USUARIO Y GUARDAR EN FIREBASE 
 
@@ -73,4 +79,39 @@ export function loginEmailPass(email, password) {
         rechazado(errorCode)
       });
   });
+}
+
+auth.useDeviceLanguage();
+export function logearGmail(){
+  return(
+    new Promise((res, rej)=>{
+       signInWithPopup(auth, provider).then((result) => {
+
+          console.log("test", result)
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          console.log("Credenciales gmail", credential)
+          const token = credential.accessToken;
+          // The signed-in user info.
+          const user = result.user;
+          console.log("Uusuario de GMAIL", user)
+          // IdP data available using getAdditionalUserInfo(result)
+          // ...
+          res(user)
+          }).catch((error) => {
+          // Handle Errors here.
+          console.log("Error en el logeo con cuenta de GMAIL", error)
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.customData.email;
+          // The AuthCredential type that was used.
+          const credential = GoogleAuthProvider.credentialFromError(error);
+          // ...
+          console.log(errorCode)
+          rej(error)
+          });
+    })
+  )
+ 
 }

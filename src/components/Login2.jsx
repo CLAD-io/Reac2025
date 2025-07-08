@@ -14,12 +14,10 @@ export default function Login2() {
     const [usuarioInicio, setUsuarioInicio] = useState('')
     const [passwordInicio, setPasswordInicio] = useState('')
     const reDirigir = useNavigate()
-    const {login, user, logout, admin} = useContext(AuthContext)
+    const {login, user, logout, admin, logearGmailAuth} = useContext(AuthContext)
     const [show, setShow] = useState(true)
 
 
-    // FUNCION PARA VALIDAR SI EL USUARIO ES ADMINISTRADOR-------------------------------------
- 
 
 // FUNCION PARA CERRAR LA SESION Y BORRAR EL TOKEN ALMACENADO EN EL LOCAL STORAGE
 
@@ -62,6 +60,15 @@ function cerrarSesion(){
       
     })
   }
+
+  // FUNCION PARA INICIAR SESION CON USUARIO DE GMAIL -------------------------------------
+
+  function loginGmail(){
+    // Llama a la funcion que esta en el AuthContext
+    logearGmailAuth()
+  }
+
+
 
   const handleShow = (e)=>{
     e.preventDefault()
@@ -126,6 +133,7 @@ function cerrarSesion(){
       </form>
       </div>
       <p className="link-logeo" onClick={handleShow}>Ya tienes cuenta? <span>Iniciar sesion</span></p>
+      <p className="link-logeo" onClick={loginGmail}>Tienes cuenta de Gmail? <span>Iniciar sesion con gmail</span></p>
       </div>
       )
     }

@@ -12,8 +12,9 @@
 }
 .cards-container{
     width: 200px;
-    border: rgba(43, 122, 187, 0.705) 2px solid;
+    border: rgba(43, 122, 187, 0.527) 2px solid;
     padding: 0 20px 20px 20px ;
+    background-color: rgba(43, 122, 187, 0.445);
 }
 
 /* DETALLES DE CADA CARD */

@@ -13,7 +13,7 @@ export default function Carrito() {
   const { verificacionLogeo, admin, user, checkSesion} = useContext(AuthContext);
 
   //USO LA FUNCION VERIFICACIONLOGEO PARA LEER EL LOCALSTORAGE Y VER SI EL USUARIO SIGUE CONECTADO
-  
+
 
     if(!checkSesion){
       return (
