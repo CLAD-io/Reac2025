@@ -1,5 +1,7 @@
 import './App.css'
+import './styles/stylesCards.css'
 import './styles/styles.css'
+
 import Nav from './components/Nav'
 import Banner from './components/Banner'
 import Footer from './components/Footer'
@@ -17,7 +19,7 @@ import FormularioProducto from './components/FormularioArticulos'
 import FormularioEditarArticulos from './components/FormularioEditarArticulos'
 import { useContext, useEffect } from 'react'
 import { AuthContext } from './contexts/AuthContext'
-import { FaTicketAlt } from "react-icons/fa";
+
 
 
 import './index.css'

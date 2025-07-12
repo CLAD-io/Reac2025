@@ -1,3 +1,35 @@
+.barra-busqueda{
+    margin: 30px;
+    display: flex;
+    justify-content: flex-end;
+    background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 6%, rgba(0, 212, 255, 0.77) 100%);
+    padding: 30px 0;
+    border-radius: 5px;
+}
+.barra-busqueda label{
+    margin-right: 30px;
+    font-size: larger;
+}
+.icon-lupa{
+    position: relative;
+    top: 4px;
+    left: -40px;
+    opacity: 0.7;
+    color: #020024;
+}
+#busqueda{
+    scale: 1.2;
+    background-color: aliceblue;
+    border:  none;
+    outline: none;
+    border-radius: 3px;
+    margin-right: 30px;
+    color: #292929;
+}
+#busqueda:focus{
+    box-shadow: 0 0 0 2px #5b9dd9;
+}
 
 .cards{
     display: flex;
@@ -8,13 +40,16 @@
     margin: auto;
     gap: 20px;
     flex-basis: initial;
+    background-image: url("../assets/musicFondo.png");
+    background-size: contain;
+    
 
 }
 .cards-container{
     width: 200px;
-    border: rgba(43, 122, 187, 0.527) 2px solid;
     padding: 0 20px 20px 20px ;
     background-color: rgba(43, 122, 187, 0.445);
+    clip-path: polygon(50% 5%, 100% 0, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 0);
 }
 
 /* DETALLES DE CADA CARD */
@@ -45,7 +80,6 @@
     border: none;   
     width: 35px;
     cursor: pointer;
-    
 }
 button{
     cursor: pointer;
@@ -88,4 +122,31 @@ grid-area: cant;
 }
 .btn-eliminar{
     grid-area: x;
+}
+
+/* PAGINADOR */
+
+.paginador{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary{
+    background-color: #f03b3b;
+    border: none;
+    scale: 1.6;
+    width: 20px;
+    height: 20px;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+.btn-outline-primary{
+    background-color: #94a8bb;
+    border: none;
+    scale: 1.6;
+    width: 20px;
+    height: 20px;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 }

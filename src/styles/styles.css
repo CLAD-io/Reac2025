@@ -1,138 +1,331 @@
+ #root {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+  }
 
-
-.div-banner{
-    background-image: url('../assets/467165490018381.png');
-    height: 100px;
-    background-size:cover;
-    display: flex;
-    border-radius: 10px;
+.div-banner {
+  background-image: url("../assets/467165490018381.png");
+  height: 100px;
+  background-size: cover;
+  display: flex;
+  border-radius: 10px;
 }
 
-.banner-titulo{
-    margin-left: 20px;
+.banner-titulo {
+  margin-left: 20px;
 }
 
-.nav{
-    
-    height: 90px;
+.nav {
+  height: 90px;
 }
-.nav-ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    list-style: none;
+.nav-ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
 }
-.nav-link{
-    color: rgb(20, 183, 224);
-    text-decoration: none;
-    color: rgb(181, 235, 248);
+.nav-link {
+  color: rgb(20, 183, 224);
+  text-decoration: none;
+  color: rgb(181, 235, 248);
 }
 .nav-ul li {
-    padding: 10px;
+  padding: 10px;
 }
-.nav-ul li:hover{
-        border-top: 3px solid rgb(109, 64, 182);
-        scale: 1.4;
+.nav-ul li:hover {
+  border-top: 3px solid rgb(109, 64, 182);
+  scale: 1.4;
 }
-.carrito-icon{
-    align-items: center;
-    margin-left: 10px;
-}
-.footer{
-    background-color: #005892;
-    padding:10px;
-    text-align:center;
-    margin-top: 20px;
-    color: white; 
-    border-radius: 10px;
-
+.hamburguesa-menu{
+    display: none;
+  }
+.carrito-icon {
+  align-items: center;
+  margin-left: 2px;
+  position: relative;
+  top: 2.9px;
 }
 
 /* Main */
 
-.div-main{
-    background-image: url("/src/assets/banner-main.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 30px;
-    color: black;
-    font-weight: bolder;
+.div-main {
+  background-image: url("/src/assets/banner-main.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 30px;
+  color: black;
+  font-weight: bolder;
 }
-.main-p{
-    max-width: 600px;
-    margin: auto;
-    background-color: rgba(5, 98, 180, 0.473);
-    padding: 30px;
-    border-radius: 10px;
+.main-p {
+  max-width: 600px;
+  margin: auto;
+  background-color: rgba(5, 98, 180, 0.473);
+  padding: 30px;
+  border-radius: 10px;
 }
 
 /* NOSOTROS */
 
-
-.img-nosotros{
-    background-image: url('/src/assets/banner-nos.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: auto;
-    padding: 60px 0;
+.img-nosotros {
+  background-image: url("/src/assets/banner-nos.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+  padding: 60px 0;
 }
 
-.div-nos{
-    margin: auto;
-    max-width: 600px;
-    background-color: rgba(5, 98, 180, 0.473);
-    padding: 30px;
-    border-radius: 10px;
+.div-nos {
+  margin: auto;
+  max-width: 600px;
+  background-color: rgba(5, 98, 180, 0.473);
+  padding: 30px;
+  border-radius: 10px;
 }
-
 
 /* Formulario de contacto */
 
-.formulario-contacto{
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    justify-content: center;
-    margin: auto;
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  justify-content: center;
+  margin: auto;
 }
-.p-formulario{
-    max-width: 70vw;
-    display: flex;
-    margin: auto;
-    margin-top: 30px;
-    text-align: start;
+.p-formulario {
+  max-width: 70vw;
+  display: flex;
+  margin: auto;
+  margin-top: 30px;
+  text-align: start;
 }
 
-/* Login */ 
+/* Login */
 
-.form-logeo{
-    
-    justify-content: center;
-    width: 300px;
-    margin: auto;
-    flex-direction: column;
+.form-logeo {
+  justify-content: center;
+  width: 300px;
+  margin: auto;
+  flex-direction: column;
 }
-.forms-login{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    
+.forms-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.btn-form{
-    margin-top: 20px;
+.btn-form {
+  margin-top: 20px;
 }
-.link-logeo{
+.link-logeo {
+  display: block;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 50px;
+  justify-content: flex-end;
+  width: 300px;
+}
+.link-logeo:hover {
+  color: rgb(181, 235, 248);
+}
+
+.footer {
+  background-color: #005892;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+  border-radius: 10px;
+  margin: 50px 0 15px;
+}
+
+
+
+/*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*  ++++++++++++++++++++++++ Media querys ++++++++++++++++++++++++++++*/
+/*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/* Teléfonos pequeños hasta 480px de ancho */
+
+@media (max-width: 620px) {
+  /* BANNER */
+  #root {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  body{
+    margin: 0;
+  }
+  .div-banner{
     display: block;
-    cursor: pointer;
+    max-width: 430vw;
+  }
+  .nav {
+    max-width: 100iw;
+    margin: 10px;
+    height: auto;
+  }
+  .nav-ul{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.6s ease-in-out;
+    background-color: #0058922a;
+    margin-bottom: 100px;
+  }
+  .nav-ul li {
+    border-bottom: #005892 solid 2px;
+  }
+  .nav-ul li a{
+    width: 280px;
+  }
+ .nav-ul li:hover {
+    background-color: rgba(111, 83, 156, 0.486);
+    border-top: none;
+    text-align: center;
+    scale: 1.12;
     margin: auto;
-    margin-top: 50px;
-    justify-content: flex-end;
-    width: 300px;
+    width: 100%;
+    margin: 2px auto;
+    transition:  scale 0.2s liease-in-outnear;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .hamburguesa-menu{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    margin-top: 10px;
+    background-color: black;
+    border: none;
     
+  }
+  .icon-hamburguesa{
+    scale: 2;
+    color: rgba(109, 64, 182, 0.89);
+  }
+  .nav-visible{
+    position: relative;
+    display: flex;
+    max-height: 400px;
+    opacity: 1;
+    margin-bottom: 100px;
+    
+  }
+.nav-link{
+    display: block;
+    width: 140px;
+    margin: auto;
 }
-.link-logeo:hover{
-    color: rgb(181, 235, 248);
+.div-cards-detalle{
+  width: 300px;
+}
+.carrito-cards{
+    grid-template-columns: 170px 1fr;
+    grid-template-rows: repeat(4,1fr); 
+    grid-template-areas:  "titulo titulo"
+                          "img cant"
+                           "img precioT"
+                           "img x";
+    justify-items: center;
+    border-radius: 15px;
+    height: 250px;
+    border: dashed  4px grey;
+    max-width: 360px ;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.image-art{
+    grid-area: img;
+    width: 150px;
+    height:150px;
+    
+    align-self: start;
+    justify-self: end ;
+}
+.btn-eliminar{
+  width: 100px;
+  align-self: start;
+}
+.art-titulo{
+    grid-area: titulo;
+    margin: 0;
+}
+.art-precio{
+    grid-area: precioT;
+     align-self: start;
+     margin: 0;
+}
+.cantidad{
+grid-area: cant;
+}
 
+/* BARRA DE BUSQUEDA */
+
+
+.barra-busqueda{
+    flex-direction: column;
+}
+.barra-busqueda label, #busqueda{
+    margin-right: 0;
+}
+.icon-lupa{
+    left: -10px;
+}
+
+}
+
+
+
+/* Dispositivos pantallas grandes hasta 1050 de ancho  */
+
+@media (min-width: 481px) and (max-width: 1049px){
+
+ #root {
+    width: 95%;
+    margin: 0;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+.carrito-cards{
+  grid-template-columns: repeat(8,1fr) 90px;
+    grid-template-rows: 1fr;
+    grid-template-areas: "img titulo titulo titulo cant precioU precioT . x";
+    justify-items: center;
+    border-radius: 15px;
+    border: dashed  4px grey;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.image-art{
+    grid-area: img;
+    margin-left: 20px;
+}
+.btn-eliminar{
+  grid-area: x;
+}
+.art-titulo{
+    grid-area: titulo;
+    align-self: center;
+}
+.art-precio{
+    grid-area: precioT;
+}
+.cantidad{
+grid-area: cant;
+}
 }
